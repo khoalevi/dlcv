@@ -53,9 +53,11 @@ class NeuralNetwork:
         D = [error * self.sigmoid_deriv(A[-1])]
 
         for i in np.arange(len(A) - 2, 0, -1):
-            delta = D[-1].dot(self.W[i].T) * self.sigmoid_deriv(A[i])
+            delta = D[-1].dot(self.W[i].T)
 
-            D.append(delta)
+            d = delta * self.sigmoid_deriv(A[i])
+            
+            D.append(d)
 
         D = D[::-1]
         # END: BACKPROPAGATION
@@ -75,9 +77,9 @@ class NeuralNetwork:
 
         return p
 
-    def calc_loss(self, X, targets):
-        targets = np.atleast_2d(targets)
-        preds = self.predict(X, addBias=True)
+    def calc_loss(self, X, y):
+        targets = np.atleast_2d(y)
+        preds = self.predict(X, addBias=False)
         loss = 0.5 * np.sum((preds - targets) ** 2)
 
         return loss
