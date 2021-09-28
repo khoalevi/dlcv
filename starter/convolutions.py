@@ -86,7 +86,7 @@ for (name, kernel) in kernelBank:
     opencvOutput = cv2.filter2D(gray, -1, kernel)
 
     cv2.imshow("Original", gray)
-    cv2.imshow("{} - convole".format(name), convOutput)
+    cv2.imshow("{} - convolve".format(name), convOutput)
     cv2.imshow("{} - opencv".format(name), opencvOutput)
     cv2.waitKey(0)
     cv2.destroyAllWindows()
