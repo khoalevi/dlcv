@@ -10,11 +10,11 @@ data = datasets.load_digits()
 X = data.data.astype('float32')
 X = (X - X.min()) / (X.max() - X.min())
 
-Y = data.target
+y = data.target
 
 print("[INFO] samples: {}, dim: {}".format(X.shape[0], X.shape[1]))
 
-(trainX, testX, trainY, testY) = train_test_split(X, Y, test_size=0.2)
+(trainX, testX, trainY, testY) = train_test_split(X, y, test_size=0.2)
 
 trainY = LabelBinarizer().fit_transform(trainY)
 testY = LabelBinarizer().fit_transform(testY)
