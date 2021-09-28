@@ -16,8 +16,8 @@ args = vars(ap.parse_args())
 print("[INFO] loading MNIST dataset...")
 ((trainX, trainY), (testX, testY)) = mnist.load_data()
 
-trainX = trainX.reshape((trainX.shape[0]), 28 * 28 * 1)
-testX = testX.reshape((testX.shape[0]), 28 * 28 * 1)
+trainX = trainX.reshape((trainX.shape[0]), 784)
+testX = testX.reshape((testX.shape[0]), 784)
 
 trainX = trainX.astype("float32") / 255.0
 testX = testX.astype("float32") / 255.0
