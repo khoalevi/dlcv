@@ -1,0 +1,35 @@
+common input layer sizes include 
+    32 × 32, 64 × 64, 96 × 96, 224 × 224, 227 × 227 and 229 × 229
+
+the input layer should also 
+    be divisible by two multiple times after the first CONV operation is applied
+
+your CONV layers should 
+    use smaller filter sizes such as 3×3 and 5×5
+
+also commonly 
+    use a stride of S = 1 for CONV layers, at least for smaller spatial input volumes
+
+personal preference is to 
+    apply zero-padding to CONV layers
+
+personal recommendation is to 
+    use POOL layers (rather than CONV layers) to reduce the spatial dimensions of input
+
+most commonly, max pooling 
+    applied over a 2×2 receptive field size and a stride of S = 2
+
+recommend 
+    using BN in nearly all situations
+
+consider 
+    applying dropout in nearly every architecture
+
+
+Levi's Arch v1:
+
+    INPUT => [[CONV => RELU => BN] * N => POOL?] * M => [FC => RELU => DO] * K => SOFTMAX
+
+    0 <= N <= 3
+    M >= 0
+    0 <= K <= 2
