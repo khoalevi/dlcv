@@ -9,8 +9,7 @@ import numpy as np
 import argparse
 
 ap = argparse.ArgumentParser()
-ap.add_argument("-o", "--output",
-                help="path to the output loss/accuracy plot")
+ap.add_argument("-o", "--output", help="path to the output loss/accuracy plot")
 args = vars(ap.parse_args())
 
 print("[INFO] loading MNIST dataset...")
