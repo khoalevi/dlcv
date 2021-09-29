@@ -35,7 +35,7 @@ class TrainingMonitor(BaseLogger):
             f.close()
 
         if len(self.H["loss"]) > 1:
-            N = np.arrange(0, len(self.H["loss"]))
+            N = np.arange(0, len(self.H["loss"]))
             plt.style.use("ggplot")
 
             plt.figure()
@@ -46,7 +46,7 @@ class TrainingMonitor(BaseLogger):
 
             plt.title("Training Loss and Accuracy [Epoch {}]"
                       .format(len(self.H["loss"])))
-                      
+
             plt.xlabel("Epoch #")
             plt.ylabel("Loss/Accuracy")
 
